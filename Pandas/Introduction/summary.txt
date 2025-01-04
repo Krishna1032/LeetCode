@@ -1,0 +1,116 @@
+
+
+Dropping Duplicate Rows Based on a Column**
+- Use `df.drop_duplicates(subset=['column_name'])` to remove duplicate rows based on a specific column.
+- Example:
+  df.drop_duplicates(subset=['column_name'], keep='first')
+  
+
+---
+
+Reversing a Boolean Mask and Applying It**
+- Use `~mask` to reverse a boolean mask.
+- Apply it to the DataFrame:
+  
+  reversed_df = df[~mask]
+  
+
+---
+
+### **3. Dropping Rows Based on Null Values in a Specific Column**
+- Use `df.dropna(subset=['column_name'])` to drop rows where a specific column contains null values.
+- Example:
+  
+  df.dropna(subset=['column_name'])
+  
+
+---
+
+### **4. Modifying a Column’s Values**
+- Multiply a column’s values efficiently:
+  
+  df['salary'] = df['salary'] * 2
+  
+
+---
+
+### **5. Renaming Columns**
+- Use `df.rename(columns={'old_name': 'new_name'})` to rename columns.
+- Rename all columns:
+  
+  df.columns = ['new_name1', 'new_name2']
+  
+
+---
+
+### **6. Changing Column Data Types**
+- Use `df['column_name'] = df['column_name'].astype(new_dtype)` to change the data type of a column.
+- Example:
+  
+  df['column_name'] = df['column_name'].astype('float64')
+  
+
+---
+
+### **7. Filling Missing Values with Specific Values for a Column**
+- Use `df.fillna(value={'column_name': specific_value})` to fill missing values in a specific column.
+- Example:
+  
+  df.fillna(value={'column_name': 0})
+  
+
+---
+
+### **8. Concatenating DataFrames**
+- Use `pd.concat([df1, df2], axis=0)` for row-wise concatenation.
+- Use `pd.concat([df1, df2], axis=1)` for column-wise concatenation.
+
+---
+
+### **9. Joins (Inner, Outer, etc.)**
+- **Inner Join**: Keeps only matching rows between two DataFrames.
+  
+  df1.merge(df2, on='key', how='inner')
+  
+- **Outer Join**: Keeps all rows, filling missing values with `NaN`.
+  
+  df1.merge(df2, on='key', how='outer')
+  
+- **Left Join**: Keeps all rows from the left DataFrame and matching rows from the right.
+  
+  df1.merge(df2, on='key', how='left')
+  
+- **Right Join**: Keeps all rows from the right DataFrame and matching rows from the left.
+  
+  df1.merge(df2, on='key', how='right')
+  
+
+---
+
+### **10. Pivot Table**
+- Use `pd.pivot_table()` to summarize data by aggregating values based on specific columns.
+- Example:
+  
+  pd.pivot_table(df, values='value_col', index='index_col', columns='col', aggfunc='mean')
+  
+
+---
+
+### **11. Melt Function**
+- Use `pd.melt()` to convert a wide-format DataFrame to a long-format DataFrame.
+- Example:
+  
+  pd.melt(df, id_vars=['id'], value_vars=['A', 'B'], var_name='Variable', value_name='Value')
+  
+
+---
+
+### **12. Sorting a Series by Another Column**
+- Filter the DataFrame, sort it by a column, and select the desired column:
+  
+  sorted_series = df[df['filtercolumn'] > condition].sort_values(by='filtercolumn')['desired_column']
+  
+
+---
+
+This summary captures the key pandas concepts and their respective examples based on your recent queries. Let me know if you'd like further clarifications or details on any topic!

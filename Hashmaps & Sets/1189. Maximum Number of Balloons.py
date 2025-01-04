@@ -7,9 +7,7 @@ class Solution:
             else:
                 count_char[char] = 1
 
-        count = 0
         balloon = {"b": 1, "a": 1, "l": 2, "o": 2, "n": 1}
-
         smallest_count = float("inf")
         for key, value in balloon.items():
             if key in count_char:
