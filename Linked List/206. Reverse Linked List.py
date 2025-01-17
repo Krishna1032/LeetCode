@@ -15,3 +15,9 @@ class Solution:
             current = after
 
         return before
+
+if head.next.next == None:
+            head.next.next == head
+            head.next = None
+            return head
+        reverseList(head.next)
