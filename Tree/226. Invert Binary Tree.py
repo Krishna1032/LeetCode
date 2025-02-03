@@ -8,18 +8,28 @@
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        q = []
-        q.append(root)
-        if root == None:
-            return None
+        # q = []
+        # q.append(root)
+        # if root == None:
+        #     return None
 
-        while q:
-            node = q.pop(0)
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-            temp = node.left
-            node.left = node.right
-            node.right = temp
+        # while q:
+        #     node = q.pop(0)
+        #     if node.left:
+        #         q.append(node.left)
+        #     if node.right:
+        #         q.append(node.right)
+        #     temp = node.left
+        #     node.left = node.right
+        #     node.right = temp
+        # return root
+
+        ## DFS Approach
+        if not root:
+            return root
+
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
         return root
